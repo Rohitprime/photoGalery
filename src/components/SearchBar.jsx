@@ -19,7 +19,7 @@ const SearchBar = ()=>{
     }
 
     return(
-        <div className="w-full h-full flex items-center justify-start">
+        <div className="w-screen sm:w-full h-full flex items-center justify-center sm:justify-start">
             <input  type='text' className='w-8/12 h-[35px] rounded-lg bg-gray-200 text-center'
             placeholder="search images here"
             onChange={changeHandler}/>

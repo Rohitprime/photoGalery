@@ -18,13 +18,18 @@ const PhotoCard = ({ photo }) => {
         <>
             {open &&
                 <div className='w-screen h-screen absolute z-[5] top-0 backdrop-blur-md bg-white/50
-           flex justify-center items-center'>
+           flex justify-center items-center overflow-y-scroll p-2'>
                     <div className="border  flex flex-col rounded-xl shadow-3xl animate-slideup relative">
-                        <AiFillCloseCircle className='absolute top-[-15px] right-[-15px] h-[40px] w-[40px]
+                        <AiFillCloseCircle className='absolute top-[-12px] right-[-12px] h-[40px] w-[40px]
                         hover:scale-110 active:scale-90 text-green-600'
                             onClick={modelHandler} />
-                        <img src={photo?.urls?.small} className='rounded-t-xl w-[900px] h-[600px]' />
-                        <div className="flex flex-row h-[80px] px-5 items-center ">
+                        <img src={photo?.urls?.full} className='rounded-t-xl sm:w-[700px] sm:h-[600px] h-[400px] w-[500px]' />
+                        <a href={photo?.links?.download} 
+                        className='absolute bg-green-600 top-[72%] sm:top-[80%] right-[2%] flex p-2 rounded-lg gap-2
+                        hover:scale-110 active:scale-95 hover:mb-[10px] text-white'>
+                            <BsDownload className='text-white mt-1'/>Download
+                        </a>
+                        <div className="flex flex-row  flex-wrap sm:flex-nowrap sm:h-[80px] px-5 items-center ">
                             <img className='w-[40px] h-[40px] rounded-full' src={photo?.user?.profile_image?.large} />
                             <div className="w-8/12 h-full flex flex-row">
                                 <div className='flex flex-col justify-center ml-2'>
@@ -39,16 +44,12 @@ const PhotoCard = ({ photo }) => {
                                     photo?.user?.social?.twitter_username:'Not Available' }</h1></div>
                                 </div>
                             </div>
-                            <div className="w-4/12 h-full self-end mr-4 flex flex-row justify-end items-center gap-1 font-bold">
+                            <div className="w-4/12 h-full sm:mt-0 mt-4 mr-4 flex flex-row justify-end items-center gap-1 font-bold self-auto">
                                 <AiOutlineLike />
                                 {photo?.likes}
                             </div>
                         </div>
-                        <a href={photo?.links?.download} 
-                        className='absolute bg-green-600 top-[81%] right-[1%] flex p-2 rounded-lg gap-2
-                        hover:scale-110 active:scale-95 hover:mb-[10px] text-white'>
-                            <BsDownload className='text-white mt-1'/>Download
-                        </a>
+                        
                     </div>
                 </div>
             }

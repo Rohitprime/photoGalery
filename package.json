@@ -2,10 +2,13 @@
   "name": "Image_galery",
   "private": true,
   "version": "0.0.0",
+  "homepage": "http://Rohitprime.github.io/photoGalery",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+     "predeploy":"npm run build",
+     "deploy":"gh-pages -d build"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
